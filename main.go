@@ -1,39 +1,29 @@
 package main
 
 import (
+	"ginProject/service"
 	"github.com/gin-gonic/gin"
-	"net/http"
 )
 
 func main() {
 	gin.ForceConsoleColor()
-	router := gin.Default()
-	router.Use(Counter())
-	index := router.Group("/")
-	user := router.Group("/user")
+	// 默认添加了Logger和Recovery中间件
+	app := gin.Default()
+	app.Use(Counter())
+
+	index := app.Group("/")
 	{
-		user.GET("", func(context *gin.Context) {
-			//context.String(http.StatusOK, "user page")
-			context.JSON(200, gin.H{
-				"key": "sindwerra",
-				"value": "admin",
-			})
-		})
-		user.GET("/register", func(context *gin.Context) {
-			context.String(http.StatusOK, "registration page")
-		})
-		login := user.Group("/login")
-		login.GET("/", func(context *gin.Context) {
-			context.JSON(200, gin.H{"message": "login-page"})
-		})
-		login.GET("/v1", func(context *gin.Context) {
-			context.JSON(200, gin.H{"message": "v1-login-page"})
-		})
+		index.GET("", service.IndexHandler)
 	}
+
+	user := app.Group("/user")
+	login := user.Group("/login")
 	{
-		index.GET("", func(context *gin.Context) {
-			context.String(http.StatusOK, "hello gin")
-		})
+		user.GET("", service.UserIndexHandler)
+		user.GET("/register", service.UserRegisterHandler)
+		login.GET("/", service.UserLoginHandler)
+		login.GET("/v1", service.UserLoginV1Handler)
 	}
-	router.Run()
+
+	app.Run()
 }
