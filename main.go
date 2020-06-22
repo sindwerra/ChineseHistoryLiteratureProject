@@ -2,6 +2,7 @@ package main
 
 import (
 	_ "ginProject/docs"
+	"ginProject/middleware"
 	"ginProject/service"
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
@@ -24,7 +25,7 @@ func main() {
 	gin.ForceConsoleColor()
 	// 默认添加了Logger和Recovery中间件
 	app := gin.Default()
-	app.Use(Counter())
+	app.Use(middleware.Counter())
 
 	index := app.Group("/")
 	{
