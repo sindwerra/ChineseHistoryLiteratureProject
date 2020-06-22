@@ -1,0 +1,82 @@
+definitions:
+  model.Result:
+    properties:
+      key:
+        type: string
+      value:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: sindwerra@hotmail.com
+    name: sindwerra
+  description: swagger示例
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: Gin swagger
+  version: "1.0"
+paths:
+  /:
+    get:
+      consumes:
+      - application/json
+      description: Index引导页
+      operationId: "1"
+      produces:
+      - application/json
+      responses: {}
+      summary: Index引导页
+      tags:
+      - Index
+  /user:
+    get:
+      consumes:
+      - application/json
+      description: 用户页面引导页
+      operationId: "1"
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Result'
+      summary: 用户页面引导页
+      tags:
+      - User
+  /user/login:
+    get:
+      consumes:
+      - application/json
+      description: 用户登录页面
+      operationId: "3"
+      produces:
+      - application/json
+      summary: 用户登录页面
+      tags:
+      - User
+  /user/login/v1:
+    get:
+      consumes:
+      - application/json
+      description: 用户登录v1页面
+      operationId: "4"
+      produces:
+      - application/json
+      summary: 用户登录v1页面
+      tags:
+      - User
+  /user/register:
+    get:
+      consumes:
+      - application/json
+      description: 用户注册页面
+      operationId: "2"
+      produces:
+      - application/json
+      summary: 用户注册页面
+      tags:
+      - User
+swagger: "2.0"
