@@ -30,6 +30,28 @@ paths:
       summary: Index引导页
       tags:
       - Index
+  /elastic/documents:
+    post:
+      consumes:
+      - application/json
+      description: 提交elastic文档接口
+      operationId: "2"
+      produces:
+      - application/json
+      summary: 提交elastic文档接口
+      tags:
+      - Elastic
+  /elastic/search:
+    get:
+      consumes:
+      - application/json
+      description: 根据查询关键字搜索文档
+      operationId: "1"
+      produces:
+      - application/json
+      summary: 根据查询关键字搜索文档
+      tags:
+      - Elastic
   /user:
     get:
       consumes:

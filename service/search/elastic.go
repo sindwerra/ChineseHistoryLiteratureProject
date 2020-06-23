@@ -3,10 +3,10 @@ package search
 import (
 	"encoding/json"
 	"fmt"
-	"ginProject/model"
 	"github.com/gin-gonic/gin"
 	"github.com/olivere/elastic/v7"
 	"github.com/teris-io/shortid"
+	"historyProject/model"
 	"log"
 	"net/http"
 	"strconv"
@@ -19,6 +19,14 @@ func errorResponse(c *gin.Context, code int, err string) {
 	})
 }
 
+// Post documents to elasticsearch node
+// @Summary 根据查询关键字搜索文档
+// @Description 根据查询关键字搜索文档
+// @ID 1
+// @Tags Elastic
+// @Accept  json
+// @Produce  json
+// @Router /elastic/search [get]
 func Endpoint(c *gin.Context) {
 	// Parse request
 	query := c.Query("query")
@@ -63,6 +71,14 @@ func Endpoint(c *gin.Context) {
 	c.JSON(http.StatusOK, res)
 }
 
+// Post documents to elasticsearch node
+// @Summary 提交elastic文档接口
+// @Description 提交elastic文档接口
+// @ID 2
+// @Tags Elastic
+// @Accept  json
+// @Produce  json
+// @Router /elastic/documents [post]
 func PostDocument(context *gin.Context) {
 	var docs []model.DocumentRequest
 	if err := context.BindJSON(&docs); err != nil {

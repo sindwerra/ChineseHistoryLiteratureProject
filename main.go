@@ -1,13 +1,13 @@
 package main
 
 import (
-	_ "ginProject/docs"
-	"ginProject/middleware"
-	"ginProject/service"
-	"ginProject/service/search"
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
+	_ "historyProject/docs"
+	"historyProject/middleware"
+	"historyProject/service"
+	"historyProject/service/search"
 	"log"
 )
 

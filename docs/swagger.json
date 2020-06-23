@@ -32,6 +32,38 @@
                 "responses": {}
             }
         },
+        "/elastic/documents": {
+            "post": {
+                "description": "提交elastic文档接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Elastic"
+                ],
+                "summary": "提交elastic文档接口",
+                "operationId": "2"
+            }
+        },
+        "/elastic/search": {
+            "get": {
+                "description": "根据查询关键字搜索文档",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Elastic"
+                ],
+                "summary": "根据查询关键字搜索文档",
+                "operationId": "1"
+            }
+        },
         "/user": {
             "get": {
                 "description": "用户页面引导页",

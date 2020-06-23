@@ -1,4 +1,4 @@
-module ginProject
+module historyProject
 
 go 1.14
 
@@ -21,6 +21,6 @@ require (
 	github.com/urfave/cli/v2 v2.2.0 // indirect
 	golang.org/x/net v0.0.0-20200602114024-627f9648deb9 // indirect
 	golang.org/x/text v0.3.3 // indirect
-	golang.org/x/tools v0.0.0-20200619210111-0f592d2728bb // indirect
+	golang.org/x/tools v0.0.0-20200623045635-ff88973b1e4e // indirect
 	gopkg.in/yaml.v2 v2.3.0 // indirect
 )
